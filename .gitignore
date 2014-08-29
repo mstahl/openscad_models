@@ -1,7 +1,4 @@
 .Apple*
 .DS_Store
-*.stl
 *.png
 *.jpg
-*.gco
-*.gcode
