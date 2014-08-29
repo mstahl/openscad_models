@@ -5,6 +5,8 @@ linear_extrude(10) {
     hull() {
       translate([-60, -60, 0]) circle(5);
       translate([0, 60, 0]) circle(5);
+    }
+    hull() {
       translate([0, 60, 0]) circle(5);
       translate([60, -60, 0]) circle(5);
     }
