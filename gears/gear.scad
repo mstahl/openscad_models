@@ -1,3 +1,4 @@
+$fn = 360;
 /* [Gear Settings] */
 
 // Set the number of teeth for this gear.
