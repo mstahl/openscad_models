@@ -1,12 +1,24 @@
 /*
  * Various configurable variables.
  */
+// How long do you want the pegs to be? Set this to be in the middle of the
+// range of spool widths you wish to accommodate.
 peg_height = 70;
+// Set this thicker to make beefier pegs. Affects the radius of all pegs.
 peg_thickness = 15;
-frame_thickness = 20;
+// How thick should the frame be?
+frame_thickness = 3;
+// Set width and height of the overall bracket here.
 width = 130;
+// Set width and height of the overall bracket here.
 height = 130;
-tube_thickness = 5;
+
+/* [Hidden] */
+
+// Set tube thickness to be at least a milimeter or two.
+tube_thickness = 3;
+// Clearance is the space between parts.
+clearance = 1;
 
 /*******************************************************************************/
 
@@ -30,13 +42,13 @@ translate([-max, -max, 0]) {
   difference() {
     cylinder(
       peg_height,
-      peg_thickness - tube_thickness - 1,
-      peg_thickness - tube_thickness - 1
+      peg_thickness - tube_thickness - clearance,
+      peg_thickness - tube_thickness - clearance
     );
     cylinder(
       peg_height + 1,
-      peg_thickness - tube_thickness - 1 - tube_thickness,
-      peg_thickness - tube_thickness - 1 - tube_thickness
+      peg_thickness - tube_thickness - clearance - tube_thickness,
+      peg_thickness - tube_thickness - clearance - tube_thickness
     );
   }
 }
@@ -54,6 +66,7 @@ translate([max, -max, 0]) {
 translate([0, max, 0]) {
   difference() {
     cylinder(peg_height, peg_thickness, peg_thickness);
-    translate([-1, -max, 0]) cube(max * 2);
+    cylinder(peg_height + 1, peg_thickness - tube_thickness, peg_thickness - tube_thickness);
+    translate([-clearance, -max, 0]) cube(max * 2);
   }
 }
